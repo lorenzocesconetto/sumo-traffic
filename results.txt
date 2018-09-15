@@ -1,0 +1,13 @@
+manhattan:		1.8
+
+new_manhattan:	1.45
+
+principal: 		2.1 / 2.2
+
+cross: 			(?)
+
+simple_T: 		1.2 / 1.0
+
+spider:			2.0
+
+campinas:		2.2
