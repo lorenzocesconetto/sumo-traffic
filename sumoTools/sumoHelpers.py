@@ -145,7 +145,7 @@ def create_and_set_cfg_file(file_name: str, period: float):
     for i in range(NUMBER_OF_SIMULATIONS):
         # Make sure all route files exists
         route_file_name = generate_complete_name_with_index(file_name, period, i)
-        route_file_path = '/'.join([file_name, 'route', route_file_name]) + '.rou.xml'
+        route_file_path = '/'.join([file_name, ROUTE_DIR, route_file_name]) + '.rou.xml'
         if not os.path.isfile(route_file_path):
             print('Route file not found: ' + route_file_path)
             sys.exit(1)
@@ -157,7 +157,7 @@ def create_and_set_cfg_file(file_name: str, period: float):
         base.find('input/net-file').set('value', '../' + network)
 
         # Set route input
-        base.find('input/route-files').set('value', '../route/' + route_file_name + '.rou.xml')
+        base.find('input/route-files').set('value', '../' + ROUTE_DIR + '/' + route_file_name + '.rou.xml')
 
         # Set output file to hold results
         output = base.find('output')
