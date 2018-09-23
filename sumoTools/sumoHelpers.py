@@ -8,14 +8,23 @@ import matplotlib.pyplot as plot
 ####################
 # Changeable
 ####################
-STEP = 1
-FILL_MAX_MIN = True
+
+# Directory for PLOT and simulations
+OUT_DIR = 'out'
+PLOT_DIR = 'plot-test'
+
+# Directories for SIMULATIONS only
+ROUTE_DIR = 'route'
+CFG_DIR = 'cfg-test'
+
+# Simulation
 X_OPTION = 'time'
 Y_OPTION = 'meanWaitingTime'
-TEXT = 'test'
-DIRECTORIES = ['cfg', 'out', 'plot']
-NUMBER_OF_SIMULATIONS = 10
 OUTPUT = 'summary-output'
+STEP = 1
+NUMBER_OF_SIMULATIONS = 10
+DIRECTORIES = ['cfg', 'out', 'plot']
+FILL_MAX_MIN = True
 ROUTE_GENERATION_OPTIONS = {'max-distance': 300,
                             'min-distance': 100,
                             'start': 0,
@@ -28,7 +37,6 @@ ROUTE_GENERATION_OPTIONS = {'max-distance': 300,
 ####################
 # Constants
 ####################
-ROUTE_DIR = 'route'
 RANDOM_TRIPS_SCRIPT_PATH = '/Users/lorenzocesconetto/Applications/sumo-0.31.0/tools/randomTrips.py'
 WORKING_DIRECTORY = '/Users/lorenzocesconetto/PyCharmProjects/sumo-tfc/src/'
 BASE_CFG = 'base.sumo.cfg'
@@ -99,27 +107,16 @@ def set_working_directory(file_name: str=''):
 
 def create_default_dirs(file_name: str):
     """Creates default directories in the file_name directory"""
-
     if not os.path.isdir(file_name):
         print('Directory not found: ' + os.getcwd() + '/' + file_name)
         sys.exit(1)
 
-    if TEXT:
-        text = remove_prefix_dash(TEXT)
-        dirs = ['-'.join([x, text]) for x in DIRECTORIES]
-    else:
-        dirs = DIRECTORIES
+    dirs = [ROUTE_DIR, OUT_DIR, PLOT_DIR, CFG_DIR]
+    absolute_path_dirs = [WORKING_DIRECTORY + file_name + '/' + x for x in dirs]
 
-    abs_dirs = [WORKING_DIRECTORY + file_name + '/' + x for x in dirs]
-
-    for directory in abs_dirs:
+    for directory in absolute_path_dirs:
         if not os.path.isdir(directory):
             subprocess.run(['mkdir', directory])
-
-    # Path file
-    route_path = WORKING_DIRECTORY + file_name + '/' + ROUTE_DIR
-    if not os.path.isdir(route_path):
-        subprocess.run(['mkdir', route_path])
 
 
 def create_and_set_cfg_file(file_name: str, period: float):
@@ -162,10 +159,10 @@ def create_and_set_cfg_file(file_name: str, period: float):
         # Set output file to hold results
         output = base.find('output')
         # OUTPUT_TYPE could be 'summary-output' , 'tripinfo-output'
-        ET.SubElement(output, OUTPUT, {'value': '../out' + text + '/' + route_file_name + '.out.xml'})
+        ET.SubElement(output, OUTPUT, {'value': '../' + OUT_DIR + '/' + route_file_name + '.out.xml'})
 
         # Save configuration xml to file
-        base.write(file_name + '/cfg' + text + '/' + route_file_name + '.sumo.cfg')
+        base.write(file_name + '/' + CFG_DIR + '/' + route_file_name + '.sumo.cfg')
 
 
 def check_simulation_environment(file_name: str, period: float):
@@ -258,11 +255,9 @@ def run_simulations(file_name: str, period: float):
     Runs simulation for that file_name for a period and number files.
     Saves to cfg-text directory
     """
-    text = prefix_dash(TEXT)
-
     for i in range(NUMBER_OF_SIMULATIONS):
         complete_name = generate_complete_name_with_index(file_name, period, i)
-        subprocess.run(['sumo', '-c', '/'.join([file_name, 'cfg' + text, complete_name + '.sumo.cfg'])])
+        subprocess.run(['sumo', '-c', '/'.join([file_name, CFG_DIR, complete_name + '.sumo.cfg'])])
 
 
 def get_single_data_from_output(file_name: str, period: float, opt: str,
@@ -275,11 +270,8 @@ def get_single_data_from_output(file_name: str, period: float, opt: str,
     """
     data = []
 
-    # Add '-' to the beginning of string
-    text = prefix_dash(TEXT)
-
     # Make sure file exists
-    name = file_name + '/out' + text + '/' + generate_complete_name_with_index(file_name, period, file_number) + '.out.xml'
+    name = file_name + '/' + OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, file_number) + '.out.xml'
     if not os.path.isfile(name):
         print('File not found: ' + name)
         sys.exit(1)
@@ -310,12 +302,10 @@ def get_data_from_all_simulations_output(file_name: str, opt: str, period: float
     """
     data = []
 
-    text = prefix_dash(TEXT)
-
     # Iterate through each simulation output file
     for i in range(NUMBER_OF_SIMULATIONS):
         tmp = []
-        name = file_name + '/out' + text + '/' + generate_complete_name_with_index(file_name, period, i) + '.out.xml'
+        name = file_name + '/' + OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, i) + '.out.xml'
 
         # Skip file not found
         if not os.path.isfile(name):
@@ -452,6 +442,10 @@ def check_plotting_environment(file_name: str, x_label_option: str, y_label_opti
         print(f"Couldn't find directory named: {file_name}")
         sys.exit(1)
 
+    plot_directory = file_name + '/' + PLOT_DIR
+    if not os.path.isdir(plot_directory):
+        subprocess.run(['mkdir', plot_directory])
+
 
 def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label_option: str,
               file_name: str, period: float, fill_max_min: bool,
@@ -460,9 +454,6 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
     # Check directories exist and numbers are within acceptable range
     check_plotting_environment(file_name=file_name, x_label_option=x_label_option,
                                y_label_option=y_label_option)
-
-    # Add "-" to text
-    text = prefix_dash(TEXT)
 
     # Create and format plot
     plot.plot(x_axis_data, y_axis_data)
@@ -500,7 +491,7 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
                           facecolor='orange', alpha=0.2, interpolate=True)
 
     # Saving name
-    plot.savefig(file_name + '/plot' + text + '/' +
+    plot.savefig(file_name + '/' + PLOT_DIR + '/' +
                  generate_complete_name(file_name=file_name, period=period)
                  + '.png')
 
@@ -508,15 +499,13 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
     plot.close()
 
 
+# Review needed
 def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label_option: str,
                           file_name: str, period: float, file_number: int, offset: int):
     """Plot the data"""
     # Check directories exist and numbers are within acceptable range
     check_plotting_environment(file_name=file_name, x_label_option=x_label_option,
                                y_label_option=y_label_option)
-
-    # Add "-" to text
-    text = prefix_dash(TEXT)
 
     # Create and format plot
     plot.plot(x_axis_data, y_axis_data)
@@ -530,7 +519,7 @@ def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: 
 
     # Title text
     plot.title(file_name + ' ' + '(period=' + str(period) + ', offset=' + str(offset) + ')',
-                   fontdict=font_title)
+               fontdict=font_title)
 
     # Label format
     font_label = {'family': 'sans-serif',
@@ -547,9 +536,8 @@ def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: 
     plot.grid()
 
     # Saving file with a given name
-    plot.savefig(file_name + '/plot' + text + '/'
-                 + generate_complete_name_with_index(file_name=file_name, period=period,
-                                                     i=file_number, TEXT=text)
+    plot.savefig(file_name + '/' + PLOT_DIR + '/'
+                 + generate_complete_name_with_index(file_name=file_name, period=period, i=file_number)
                  + '-period-offset=' + str(offset) + '.png')
 
     # Close file and free from memory
