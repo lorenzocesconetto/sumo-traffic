@@ -11,11 +11,11 @@ import matplotlib.pyplot as plot
 
 # Directory for PLOT and simulations
 OUT_DIR = 'out'
-PLOT_DIR = 'plot-test'
+PLOT_DIR = 'plot'
 
 # Directories for SIMULATIONS only
 ROUTE_DIR = 'route'
-CFG_DIR = 'cfg-test'
+CFG_DIR = 'cfg'
 
 # Simulation
 X_OPTION = 'time'
@@ -25,10 +25,11 @@ STEP = 1
 NUMBER_OF_SIMULATIONS = 10
 DIRECTORIES = ['cfg', 'out', 'plot']
 FILL_MAX_MIN = True
-ROUTE_GENERATION_OPTIONS = {'max-distance': 300,
-                            'min-distance': 100,
+ROUTE_GENERATION_OPTIONS = {
+                            # 'max-distance': 300,
+                            'min-distance': 200,
                             'start': 0,
-                            'end': 1000,
+                            'end': 5400,
                             'fringe-factor': 10,
                             # 'speed-exponent': 10
                             }
@@ -129,9 +130,6 @@ def create_and_set_cfg_file(file_name: str, period: float):
     # Check if configuration file exists
     if not os.path.isfile(BASE_CFG):
         print('XML not found: ' + os.getcwd() + '/' + BASE_CFG)
-
-    # If text is provided without dash, then add it to the beginning of the string
-    text = prefix_dash(TEXT)
 
     # Make sure network file exists
     network = file_name + '.net.xml'
