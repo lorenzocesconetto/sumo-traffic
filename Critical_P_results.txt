@@ -1,3 +1,6 @@
+____________________________
+end = 1000 s
+____________________________
 manhattan:		1.8
 
 new_manhattan:	1.45
@@ -11,3 +14,18 @@ simple_T: 		1.2 / 1.0
 spider:			2.0
 
 campinas:		2.2
+
+____________________________
+end = 5400 s (at least)
+fringe factor = 10
+min-distance = 200
+____________________________
+manhattan:		1.5
+
+principal: 		2.7
+
+cross:          2.2
+
+simple_T: 		1.4
+
+spider:			2.1

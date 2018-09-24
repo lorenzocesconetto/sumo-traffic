@@ -29,7 +29,7 @@ ROUTE_GENERATION_OPTIONS = {
                             # 'max-distance': 300,
                             'min-distance': 200,
                             'start': 0,
-                            'end': 5400,
+                            'end': 10800,
                             'fringe-factor': 10,
                             # 'speed-exponent': 10
                             }
