@@ -9,27 +9,26 @@ import matplotlib.pyplot as plot
 # Changeable
 ####################
 
-# Directory for PLOT and simulations
-OUT_DIR = 'out'
-PLOT_DIR = 'plot'
+# Directory for PLOT and SIMULATIONS
+OUT_DIR = 'out-trip'
+PLOT_DIR = 'plot-trip'
 
 # Directories for SIMULATIONS only
-ROUTE_DIR = 'route'
-CFG_DIR = 'cfg'
+ROUTE_DIR = 'route-trip'
+CFG_DIR = 'cfg-trip'
 
 # Simulation
 X_OPTION = 'time'
 Y_OPTION = 'meanWaitingTime'
-OUTPUT = 'summary-output'
+OUTPUT = 'tripinfo-output'  # summary-output tripinfo-output
 STEP = 1
-NUMBER_OF_SIMULATIONS = 10
-DIRECTORIES = ['cfg', 'out', 'plot']
+NUMBER_OF_SIMULATIONS = 1
 FILL_MAX_MIN = True
 ROUTE_GENERATION_OPTIONS = {
                             # 'max-distance': 300,
                             'min-distance': 200,
                             'start': 0,
-                            'end': 10800,
+                            'end': 1800,
                             'fringe-factor': 10,
                             # 'speed-exponent': 10
                             }
@@ -122,9 +121,9 @@ def create_default_dirs(file_name: str):
 
 def create_and_set_cfg_file(file_name: str, period: float):
     """
-    Creates the configuration files in the directory file_name/cfg-text
-    The file derives from the base_cfg parameter, which is set to base.sumo.cfg
-    It always sets the route file to the route directory, never route-text
+        Creates the configuration files in the directory file_name/cfg-text
+        The file derives from the base_cfg parameter, which is set to base.sumo.cfg
+        It always sets the route file to the route directory, never route-text
     """
 
     # Check if configuration file exists
@@ -165,9 +164,9 @@ def create_and_set_cfg_file(file_name: str, period: float):
 
 def check_simulation_environment(file_name: str, period: float):
     """
-    Checks if environment is setup to run
-    Checks the existance of: default directories, network file,
-    period and number are in a valid range, output_type is valid
+        Checks if environment is setup to run
+        Checks the existance of: default directories, network file,
+        period and number are in a valid range, output_type is valid
     """
 
     # Check if file_name dir exists
@@ -200,9 +199,9 @@ def check_simulation_environment(file_name: str, period: float):
 
 def generate_random_route_files(file_name: str, period: float):
     """
-    Generates random trips and saves it into a routes file.
-    The parameters taken into consideration are in the global
-    dictionary variable RANDOM_TRIPS_SCRIPT_PATH
+        Generates random trips and saves it into a routes file.
+        The parameters taken into consideration are in the global
+        dictionary variable RANDOM_TRIPS_SCRIPT_PATH
     """
     # Set up the possible attributes
     max_distance = 'max-distance'
@@ -250,8 +249,8 @@ def generate_random_route_files(file_name: str, period: float):
 
 def run_simulations(file_name: str, period: float):
     """
-    Runs simulation for that file_name for a period and number files.
-    Saves to cfg-text directory
+        Runs simulation for that file_name for a period and number files.
+        Saves to cfg-text directory
     """
     for i in range(NUMBER_OF_SIMULATIONS):
         complete_name = generate_complete_name_with_index(file_name, period, i)
@@ -262,9 +261,9 @@ def get_single_data_from_output(file_name: str, period: float, opt: str,
                                 sorted_output: bool=True, file_number: int=0,
                                 integer_output: bool=True):
     """
-    Get data from a single out.xml file and return it into a list.
-    parameter opt could be: depart, departDelay, meanWaitingTime, etc.
-    If integer_output is set to false, it will return float output.
+        Get data from a single *.out.xml file and return it into a list.
+        parameter opt could be: depart, departDelay, meanWaitingTime, etc.
+        If integer_output is set to false, it will return float output.
     """
     data = []
 
@@ -292,11 +291,11 @@ def get_single_data_from_output(file_name: str, period: float, opt: str,
 
 def get_data_from_all_simulations_output(file_name: str, opt: str, period: float):
     """
-    Get data from a all out.xml file and return it into a list of lists.
-    Each list is holds the opt values for one specific simulation.
-    parameter opt could be: depart, departDelay, meanWaitingTime, etc.
-    If integer_output is set to false, it will return float output.
-    [[x_1, x_2, ...], [x_1, x_2...], ...]
+        Get data from a all out.xml file and return it into a list of lists.
+        Each list is holds the opt values for one specific simulation.
+        parameter opt could be: depart, departDelay, meanWaitingTime, etc.
+        If integer_output is set to false, it will return float output.
+        [[x_1, x_2, ...], [x_1, x_2...], ...]
     """
     data = []
 
@@ -322,7 +321,7 @@ def get_data_from_all_simulations_output(file_name: str, opt: str, period: float
     return data
 
 
-def get_insertion_rate_at_point(time_point, insertion_times, step=1, offset=2):
+def get_insertion_rate_at_point(time_point, insertion_times, step=1, offset=10):
     """Returns the average period of insertion of offset number of points"""
 
     offset = int(offset)
@@ -397,10 +396,10 @@ def get_size_of_smallest_list(data: list):
 
 def get_max_min_vectors_from_list_of_lists(data: list):
     """
-    Gets the minimum and the maximum values of the
-    corresponding elements in a list of lists.
-    returns a dictionary with two lists as
-    {'maximum': [max_i, max_i+1, ...], 'minimum': [min_i, min_i+1, ...]}
+        Gets the minimum and the maximum values of the
+        corresponding elements in a list of lists.
+        returns a dictionary with two lists as
+        {'maximum': [max_i, max_i+1, ...], 'minimum': [min_i, min_i+1, ...]}
     """
     # Get length of shortest list
     size_of_output_vector = get_size_of_smallest_list(data)
@@ -497,13 +496,9 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
     plot.close()
 
 
-# Review needed
-def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label_option: str,
+def plot_data_with_offset(x_axis_data: list, y_axis_data: list,
                           file_name: str, period: float, file_number: int, offset: int):
-    """Plot the data"""
-    # Check directories exist and numbers are within acceptable range
-    check_plotting_environment(file_name=file_name, x_label_option=x_label_option,
-                               y_label_option=y_label_option)
+    """Plot the data with custom title"""
 
     # Create and format plot
     plot.plot(x_axis_data, y_axis_data)
@@ -527,8 +522,8 @@ def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: 
                   'size': 12}
 
     # Label text
-    plot.xlabel(PLOT_AXIS_LABEL_OPTIONS[x_label_option], fontdict=font_label)
-    plot.ylabel(PLOT_AXIS_LABEL_OPTIONS[y_label_option], fontdict=font_label)
+    plot.xlabel('Time (s)', fontdict=font_label)
+    plot.ylabel('Actual Period (s/veh)', fontdict=font_label)
 
     # Add grid lines
     plot.grid()
@@ -536,7 +531,7 @@ def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: 
     # Saving file with a given name
     plot.savefig(file_name + '/' + PLOT_DIR + '/'
                  + generate_complete_name_with_index(file_name=file_name, period=period, i=file_number)
-                 + '-period-offset=' + str(offset) + '.png')
+                 + '-offset=' + str(offset) + '.png')
 
     # Close file and free from memory
     plot.close()
@@ -547,8 +542,8 @@ def plot_data_with_offset(x_axis_data: list, y_axis_data: list, x_label_option: 
 ####################
 def script_run_plot(file_name: str, period: float):
     """
-    Gather the data from the output, and print it.
-    Does not run or setup any simulations.
+        Gather the data from the output, and print it.
+        Does not run or setup any simulations.
     """
     # Set working dir to src
     set_working_directory()
@@ -571,10 +566,7 @@ def script_run_plot(file_name: str, period: float):
 
 
 def script_run_simulations(file_name: str, period: float):
-    """
-    Runs all simulations and generates results.
-    After that, it also plots the results.
-    """
+    """Setup and run all simulations generating results."""
     set_working_directory()
 
     # Checks the environment
@@ -594,11 +586,37 @@ def script_run_simulations(file_name: str, period: float):
 
 
 def script_run_complete(file_name: str, period: float):
+    """
+        Setup and run all simulations generating results.
+        After that, it also plots the results.
+    """
     script_run_simulations(file_name, period)
     script_run_plot(file_name, period)
 
 
+def script_plot_trip_insertion_rate(file_name, period=1, file_number=0, offset=10):
+    period = float(period)
+    offset = int(offset)
 
+    # Create dir plot_trip
+    create_default_dirs(file_name)
+
+    # Get list of lists of insertion times
+    insertion_times = get_single_data_from_output(file_name=file_name, period=period, opt='depart',
+                                                  sorted_output=True, file_number=0, integer_output=True)
+
+    max_time = max(insertion_times)
+
+    # Set up both axes
+    # Get p value for each time
+    y = [get_insertion_rate_at_point(time_point=time, insertion_times=insertion_times,
+                                     step=1, offset=offset) for time in range(max_time)]
+
+    x = [time for time in range(max_time)]
+
+    # Plot the data
+    plot_data_with_offset(x_axis_data=x, y_axis_data=y, file_name=file_name,
+                          period=period, file_number=file_number, offset=offset)
 
 
 
