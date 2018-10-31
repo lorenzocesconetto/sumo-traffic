@@ -3,55 +3,7 @@ import os
 import subprocess
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plot
-
-
-####################
-# Changeable
-####################
-
-# Directory for PLOT and SIMULATIONS
-OUT_DIR = 'out-trip'
-PLOT_DIR = 'plot-trip'
-
-# Directories for SIMULATIONS only
-ROUTE_DIR = 'route-trip'
-CFG_DIR = 'cfg-trip'
-
-# Simulation
-X_OPTION = 'time'
-Y_OPTION = 'meanWaitingTime'
-OUTPUT = 'tripinfo-output'  # summary-output tripinfo-output
-STEP = 1
-NUMBER_OF_SIMULATIONS = 1
-FILL_MAX_MIN = True
-ROUTE_GENERATION_OPTIONS = {
-                            # 'max-distance': 300,
-                            'min-distance': 200,
-                            'start': 0,
-                            'end': 1800,
-                            'fringe-factor': 10,
-                            # 'speed-exponent': 10
-                            }
-
-
-####################
-# Constants
-####################
-RANDOM_TRIPS_SCRIPT_PATH = '/Users/lorenzocesconetto/Applications/sumo-0.31.0/tools/randomTrips.py'
-WORKING_DIRECTORY = '/Users/lorenzocesconetto/PyCharmProjects/sumo-tfc/src/'
-BASE_CFG = 'base.sumo.cfg'
-OUTPUT_OPTIONS = ["summary-output", "tripinfo-output"]
-PLOT_AXIS_LABEL_OPTIONS = {"time": "Time (s)",
-                           "loaded": "Total number of cars loaded (#)",
-                           "inserted": "Total number of cars inserted in the map (#)",
-                           "running": "Number of cars currently in the map (#)",
-                           "waiting": "Number of cars currently waiting at intersections (#)",
-                           "ended": "Total number of cars that left the map (#)",
-                           "meanWaitingTime": "Mean Waiting Time (s)",
-                           "meanTravelTime": "Mean Travel Time (s)",
-                           "duration": "Duration (?)",
-                           "depart": "Actual Period (s/veh)"}
-
+import sumoTools.simulationConstants as Const
 
 ####################
 # Helpers
@@ -75,8 +27,8 @@ def format_attribute(attribute: str):
 
 
 def add_attribute(command_list: list, attribute: str, default: str = ''):
-    if attribute in ROUTE_GENERATION_OPTIONS:
-        command_list.append(format_attribute(attribute) + str(ROUTE_GENERATION_OPTIONS[attribute]))
+    if attribute in Const.ROUTE_GENERATION_OPTIONS:
+        command_list.append(format_attribute(attribute) + str(Const.ROUTE_GENERATION_OPTIONS[attribute]))
     elif default:
         command_list.append(format_attribute(attribute) + str(default))
 
@@ -97,12 +49,12 @@ def generate_complete_name(file_name: str, period: float):
 def set_working_directory(file_name: str=''):
     """Changes working directory into the network directory"""
 
-    new_directory = WORKING_DIRECTORY + file_name
+    new_directory = os.path.join(Const.WORKING_DIRECTORY, file_name)
 
     if os.path.isdir(new_directory):
         os.chdir(new_directory)
     else:
-        print('Directory not found: ' + WORKING_DIRECTORY + file_name)
+        print('Directory not found: ' + Const.WORKING_DIRECTORY + file_name)
 
 
 def create_default_dirs(file_name: str):
@@ -111,8 +63,8 @@ def create_default_dirs(file_name: str):
         print('Directory not found: ' + os.getcwd() + '/' + file_name)
         sys.exit(1)
 
-    dirs = [ROUTE_DIR, OUT_DIR, PLOT_DIR, CFG_DIR]
-    absolute_path_dirs = [WORKING_DIRECTORY + file_name + '/' + x for x in dirs]
+    dirs = [Const.ROUTE_DIR, Const.OUT_DIR, Const.PLOT_DIR, Const.CFG_DIR]
+    absolute_path_dirs = [Const.WORKING_DIRECTORY + file_name + '/' + x for x in dirs]
 
     for directory in absolute_path_dirs:
         if not os.path.isdir(directory):
@@ -127,8 +79,8 @@ def create_and_set_cfg_file(file_name: str, period: float):
     """
 
     # Check if configuration file exists
-    if not os.path.isfile(BASE_CFG):
-        print('XML not found: ' + os.getcwd() + '/' + BASE_CFG)
+    if not os.path.isfile(Const.BASE_CFG):
+        print('XML not found: ' + os.getcwd() + '/' + Const.BASE_CFG)
 
     # Make sure network file exists
     network = file_name + '.net.xml'
@@ -136,30 +88,30 @@ def create_and_set_cfg_file(file_name: str, period: float):
         print('Network not found: ' + network)
         sys.exit(1)
 
-    for i in range(NUMBER_OF_SIMULATIONS):
+    for i in range(Const.NUMBER_OF_SIMULATIONS):
         # Make sure all route files exists
         route_file_name = generate_complete_name_with_index(file_name, period, i)
-        route_file_path = '/'.join([file_name, ROUTE_DIR, route_file_name]) + '.rou.xml'
+        route_file_path = os.path.join(file_name, Const.ROUTE_DIR, route_file_name) + '.rou.xml'
         if not os.path.isfile(route_file_path):
             print('Route file not found: ' + route_file_path)
             sys.exit(1)
 
         # Open XML in memory
-        base = ET.parse(BASE_CFG)
+        base = ET.parse(Const.BASE_CFG)
 
         # Set network input
         base.find('input/net-file').set('value', '../' + network)
 
         # Set route input
-        base.find('input/route-files').set('value', '../' + ROUTE_DIR + '/' + route_file_name + '.rou.xml')
+        base.find('input/route-files').set('value', '../' + Const.ROUTE_DIR + '/' + route_file_name + '.rou.xml')
 
         # Set output file to hold results
         output = base.find('output')
         # OUTPUT_TYPE could be 'summary-output' , 'tripinfo-output'
-        ET.SubElement(output, OUTPUT, {'value': '../' + OUT_DIR + '/' + route_file_name + '.out.xml'})
+        ET.SubElement(output, Const.OUTPUT, {'value': '../' + Const.OUT_DIR + '/' + route_file_name + '.out.xml'})
 
         # Save configuration xml to file
-        base.write(file_name + '/' + CFG_DIR + '/' + route_file_name + '.sumo.cfg')
+        base.write(file_name + '/' + Const.CFG_DIR + '/' + route_file_name + '.sumo.cfg')
 
 
 def check_simulation_environment(file_name: str, period: float):
@@ -180,7 +132,7 @@ def check_simulation_environment(file_name: str, period: float):
         sys.exit(1)
 
     # Check if NUMBER is valid
-    if NUMBER_OF_SIMULATIONS <= 0 or NUMBER_OF_SIMULATIONS > 10:
+    if Const.NUMBER_OF_SIMULATIONS <= 0 or Const.NUMBER_OF_SIMULATIONS > 10:
         print("number must be a positive integer no larger than 10")
         sys.exit(1)
 
@@ -190,10 +142,10 @@ def check_simulation_environment(file_name: str, period: float):
         sys.exit(1)
 
     # Check output type exists
-    if OUTPUT not in OUTPUT_OPTIONS:
+    if Const.OUTPUT not in Const.OUTPUT_OPTIONS:
         print('OUTPUT_TYPE is not valid.\n' +
-              'You entered: ' + OUTPUT + '\n' +
-              'Options are: ' + str(OUTPUT_OPTIONS))
+              'You entered: ' + Const.OUTPUT + '\n' +
+              'Options are: ' + str(Const.OUTPUT_OPTIONS))
         sys.exit(1)
 
 
@@ -203,6 +155,9 @@ def generate_random_route_files(file_name: str, period: float):
         The parameters taken into consideration are in the global
         dictionary variable RANDOM_TRIPS_SCRIPT_PATH
     """
+    # Set working directory
+    set_working_directory()
+
     # Set up the possible attributes
     max_distance = 'max-distance'
     min_distance = 'min-distance'
@@ -214,7 +169,7 @@ def generate_random_route_files(file_name: str, period: float):
 
     # Setup randomTrips.py command line
     command = []
-    command.append(RANDOM_TRIPS_SCRIPT_PATH)
+    command.append(Const.RANDOM_TRIPS_SCRIPT_PATH)
     command.append('-n')
     command.append(file_name + '/' + file_name + '.net.xml')
 
@@ -230,10 +185,10 @@ def generate_random_route_files(file_name: str, period: float):
     command.append('-r')
 
     # Add the final element to command list, which is the output route file
-    for i in range(NUMBER_OF_SIMULATIONS):
+    for i in range(Const.NUMBER_OF_SIMULATIONS):
         # Append path for route file
         complete_name = generate_complete_name_with_index(file_name, period, i)
-        complete_name_with_path = '/'.join([file_name, ROUTE_DIR, complete_name])
+        complete_name_with_path = '/'.join([file_name, Const.ROUTE_DIR, complete_name])
         command.append(complete_name_with_path + '.rou.xml')
 
         # Create route file
@@ -252,9 +207,9 @@ def run_simulations(file_name: str, period: float):
         Runs simulation for that file_name for a period and number files.
         Saves to cfg-text directory
     """
-    for i in range(NUMBER_OF_SIMULATIONS):
+    for i in range(Const.NUMBER_OF_SIMULATIONS):
         complete_name = generate_complete_name_with_index(file_name, period, i)
-        subprocess.run(['sumo', '-c', '/'.join([file_name, CFG_DIR, complete_name + '.sumo.cfg'])])
+        subprocess.run(['sumo', '-c', '/'.join([file_name, Const.CFG_DIR, complete_name + '.sumo.cfg'])])
 
 
 def get_single_data_from_output(file_name: str, period: float, opt: str,
@@ -262,13 +217,14 @@ def get_single_data_from_output(file_name: str, period: float, opt: str,
                                 integer_output: bool=True):
     """
         Get data from a single *.out.xml file and return it into a list.
-        parameter opt could be: depart, departDelay, meanWaitingTime, etc.
+        Parameter opt could be: depart, departDelay, meanWaitingTime, etc.
         If integer_output is set to false, it will return float output.
+        Returns [x1, x2, ...]
     """
     data = []
 
     # Make sure file exists
-    name = file_name + '/' + OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, file_number) + '.out.xml'
+    name = file_name + '/' + Const.OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, file_number) + '.out.xml'
     if not os.path.isfile(name):
         print('File not found: ' + name)
         sys.exit(1)
@@ -300,9 +256,9 @@ def get_data_from_all_simulations_output(file_name: str, opt: str, period: float
     data = []
 
     # Iterate through each simulation output file
-    for i in range(NUMBER_OF_SIMULATIONS):
+    for i in range(Const.NUMBER_OF_SIMULATIONS):
         tmp = []
-        name = file_name + '/' + OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, i) + '.out.xml'
+        name = file_name + '/' + Const.OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, i) + '.out.xml'
 
         # Skip file not found
         if not os.path.isfile(name):
@@ -423,15 +379,15 @@ def check_plotting_environment(file_name: str, x_label_option: str, y_label_opti
     """Checks if all proper directories and files exist to create a plot"""
 
     # Check if x_opt provided is valid
-    if x_label_option not in PLOT_AXIS_LABEL_OPTIONS:
+    if x_label_option not in Const.PLOT_AXIS_LABEL_OPTIONS:
         print("Could not find x_opt,\nopt might be:")
-        print(', '.join(PLOT_AXIS_LABEL_OPTIONS.keys()))
+        print(', '.join(Const.PLOT_AXIS_LABEL_OPTIONS.keys()))
         sys.exit(1)
 
     # Check if opt2 provided is valid
-    if y_label_option not in PLOT_AXIS_LABEL_OPTIONS:
+    if y_label_option not in Const.PLOT_AXIS_LABEL_OPTIONS:
         print("Could not find y_opt,\nopt might be:")
-        print(', '.join(PLOT_AXIS_LABEL_OPTIONS.keys()))
+        print(', '.join(Const.PLOT_AXIS_LABEL_OPTIONS.keys()))
         sys.exit(1)
 
     # Check if dir exists
@@ -439,7 +395,7 @@ def check_plotting_environment(file_name: str, x_label_option: str, y_label_opti
         print(f"Couldn't find directory named: {file_name}")
         sys.exit(1)
 
-    plot_directory = file_name + '/' + PLOT_DIR
+    plot_directory = file_name + '/' + Const.PLOT_DIR
     if not os.path.isdir(plot_directory):
         subprocess.run(['mkdir', plot_directory])
 
@@ -473,8 +429,8 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
                         'size': 12}
 
     # Label text
-    plot.xlabel(PLOT_AXIS_LABEL_OPTIONS[x_label_option], fontdict=label_font_style)
-    plot.ylabel(PLOT_AXIS_LABEL_OPTIONS[y_label_option], fontdict=label_font_style)
+    plot.xlabel(Const.PLOT_AXIS_LABEL_OPTIONS[x_label_option], fontdict=label_font_style)
+    plot.ylabel(Const.PLOT_AXIS_LABEL_OPTIONS[y_label_option], fontdict=label_font_style)
 
     # Add grid lines
     plot.grid()
@@ -488,7 +444,7 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
                           facecolor='orange', alpha=0.2, interpolate=True)
 
     # Saving name
-    plot.savefig(file_name + '/' + PLOT_DIR + '/' +
+    plot.savefig(file_name + '/' + Const.PLOT_DIR + '/' +
                  generate_complete_name(file_name=file_name, period=period)
                  + '.png')
 
@@ -529,7 +485,7 @@ def plot_data_with_offset(x_axis_data: list, y_axis_data: list,
     plot.grid()
 
     # Saving file with a given name
-    plot.savefig(file_name + '/' + PLOT_DIR + '/'
+    plot.savefig(file_name + '/' + Const.PLOT_DIR + '/'
                  + generate_complete_name_with_index(file_name=file_name, period=period, i=file_number)
                  + '-offset=' + str(offset) + '.png')
 
@@ -549,7 +505,7 @@ def script_run_plot(file_name: str, period: float):
     set_working_directory()
 
     # Get y data
-    y_full_data = get_data_from_all_simulations_output(file_name, Y_OPTION, period)
+    y_full_data = get_data_from_all_simulations_output(file_name, Const.Y_OPTION, period)
     y_data = get_average_from_list_of_lists(y_full_data)
 
     # Get x data
@@ -561,11 +517,11 @@ def script_run_plot(file_name: str, period: float):
     minimums_vector = max_min_dictionary['minimum']
 
     # Plot data
-    plot_data(x_data, y_data, X_OPTION, Y_OPTION, file_name, period,
-              FILL_MAX_MIN, maximums_vector, minimums_vector)
+    plot_data(x_data, y_data, Const.X_OPTION, Const.Y_OPTION, file_name, period,
+              Const.FILL_MAX_MIN, maximums_vector, minimums_vector)
 
 
-def script_run_simulations(file_name: str, period: float):
+def script_run_simulations(file_name: str, period: float, execute_simulations: bool):
     """Setup and run all simulations generating results."""
     set_working_directory()
 
@@ -582,7 +538,8 @@ def script_run_simulations(file_name: str, period: float):
     create_and_set_cfg_file(file_name, period)
 
     # Run simulation
-    run_simulations(file_name, period)
+    if execute_simulations:
+        run_simulations(file_name, period)
 
 
 def script_run_complete(file_name: str, period: float):

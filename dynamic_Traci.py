@@ -3,7 +3,7 @@ import os
 import sys
 
 # Setup path to find Sumo modules
-if "SUMO_HOME" in os.environ:
+if 'SUMO_HOME' in os.environ:
     tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
     sys.path.append(tools)
 
