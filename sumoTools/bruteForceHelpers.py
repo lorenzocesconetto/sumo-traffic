@@ -2,13 +2,31 @@ import sumoTools.simulationHelpers as SH
 import sys
 import os
 import subprocess
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree
 import sumoTools.simulationConstants as Const
 import matplotlib.pyplot
 
 
-STATES_ARRAY = ['GrrG', 'yrry', 'rGGr', 'ryyr']
-# tl_configuration_timing = [10, 2, 10, 2]
+def read_tl_id(file_name: str):
+    path_to_network_file = os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + Const.NET_FILE_EXTENSION)
+    base = xml.etree.ElementTree.parse(path_to_network_file)
+    return base.find('tlLogic').attrib['id']
+
+
+def read_tl_states(file_name: str):
+    path_to_network_file = os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + Const.NET_FILE_EXTENSION)
+    base = xml.etree.ElementTree.parse(path_to_network_file)
+    tlLogic_element = base.find('tlLogic')
+
+    data = []
+    for child in tlLogic_element:
+        data.append(child.attrib['state'])
+
+    if len(data) != Const.NUMBER_OF_PHASES:
+        print('Number of phases read in the file: ' + path_to_network_file + '\n')
+        print('doesn\'t match the input in the sumoTools/simulationConstants.py file.\n')
+
+    return data
 
 
 def make_tl_name(period: float, i: int):
@@ -40,8 +58,7 @@ def generate_possibilities():
     if (
         (yellow_duration + Const.NUMBER_OF_RED_GREEN_PHASES * Const.MIN_PHASE_DURATION) > Const.MAX_CYCLE
             or (yellow_duration + Const.NUMBER_OF_RED_GREEN_PHASES * Const.MAX_PHASE_DURATION) < Const.MIN_CYCLE
-            or Const.MIN_CYCLE > Const.MAX_CYCLE
-    ):
+            or Const.MIN_CYCLE > Const.MAX_CYCLE):
         print('Invalid cycle values. Please check numbers.\n')
         sys.exit(1)
 
@@ -60,8 +77,9 @@ def generate_possibilities():
 
             red_time = cycle_time - green_time - yellow_duration
 
-            if red_time <= Const.MAX_RED_TIME:
-                possibilities.append((cycle_time, green_time, red_time))
+            if red_time <= Const.MAX_RED_TIME and green_time >= Const.MIN_GREEN_TIME:
+                possibilities.append(
+                    {'cycle_time': cycle_time, 'green_time': green_time, 'red_time': red_time})
 
     return possibilities
 
@@ -88,14 +106,13 @@ def create_tl_program_file(file_name: str, timing: list, states: list, i: int, p
 
     SH.set_working_directory()
 
-    with open(os.path.join(file_name, Const.TL_DIR, make_tl_name(period=period, i=i)), 'w') as file:
-        file.write('<additional>\n')
-        file.write('\t<tlLogic id="gneJ3" type="static" programID="my_program" offset="0">\n')
-        for i in range(Const.NUMBER_OF_PHASES):
-            file.write('\t\t<phase duration="' + str(timing[i]) + '" state="' + states[i] + '"/>\n')
-        file.write('\t</tlLogic>\n')
-        file.write('</additional>\n')
-    file.closed
+    file = open(os.path.join(file_name, Const.TL_DIR, make_tl_name(period=period, i=i)), 'w')
+    file.write('<additional>\n')
+    file.write('\t<tlLogic id="' + read_tl_id(file_name) + '" type="static" programID="my_program" offset="0">\n')
+    for i in range(Const.NUMBER_OF_PHASES):
+        file.write('\t\t<phase duration="' + str(timing[i]) + '" state="' + states[i] + '"/>\n')
+    file.write('\t</tlLogic>\n')
+    file.write('</additional>\n')
 
 
 def create_cfg_and_add_tl_program(file_name: str, period: float, i: int):
@@ -113,7 +130,7 @@ def create_cfg_and_add_tl_program(file_name: str, period: float, i: int):
         sys.exit(1)
 
     # Open XML in memory
-    base = ET.parse(Const.BASE_CFG)
+    base = xml.etree.ElementTree.parse(Const.BASE_CFG)
 
     # Set network input
     base.find('input/net-file').set('value', '../' + network)
@@ -123,14 +140,14 @@ def create_cfg_and_add_tl_program(file_name: str, period: float, i: int):
 
     # Set output file
     output = base.find('output')
-    ET.SubElement(output, Const.OUTPUT,
+    xml.etree.ElementTree.SubElement(output, Const.OUTPUT,
                   {'value': os.path.join('..', Const.OUT_DIR,
                                          SH.generate_complete_name_with_index(file_name, period, i)
                                          + Const.OUT_FILE_EXTENSION)})
 
     # Add Traffic Light program
     cfg_file_buffer = base.find('input')
-    ET.SubElement(cfg_file_buffer, Const.ADDITIONAL_FILE_TAG,
+    xml.etree.ElementTree.SubElement(cfg_file_buffer, Const.ADDITIONAL_FILE_TAG,
                   {'value': os.path.join('..', Const.TL_DIR,
                                          make_tl_name(period=period, i=i))})
 
@@ -164,7 +181,7 @@ def get_data(file_name: str, period: float, i: int, opt: str):
     data = []
 
     # Open xml file
-    root = ET.parse(name).getroot()
+    root = xml.etree.ElementTree.parse(name).getroot()
 
     for child in root:
         data.append(float(child.get(opt)))
@@ -176,7 +193,7 @@ def get_data_from_file_path(file_path: str, opt: str):
     data = []
 
     # Open xml file
-    root = ET.parse(file_path).getroot()
+    root = xml.etree.ElementTree.parse(file_path).getroot()
 
     for child in root:
         data.append(float(child.get(opt)))
@@ -217,37 +234,35 @@ def delete_files(file_name: str, period: float, i: int):
 
 
 def pick_the_best_tl_program(file_name: str, period: float):
-    cycle_time_index = 0
-    green_time_index = 1
-    red_time_index = 2
-
     SH.set_working_directory()
     create_tl_dir(file_name)
     possibilities = generate_possibilities()
 
     buffer = None
     for i in range(len(possibilities)):
-        timing = [possibilities[i][green_time_index],
+        timing = [possibilities[i]['green_time'],
                   Const.YELLOW_DURATION,
-                  possibilities[i][red_time_index],
+                  possibilities[i]['red_time'],
                   Const.YELLOW_DURATION]
 
-        create_tl_program_file(file_name=file_name, timing=timing, states=STATES_ARRAY, i=i, period=period)
+        tl_states = read_tl_states(file_name=file_name)
+        create_tl_program_file(file_name=file_name, timing=timing, states=tl_states, i=i, period=period)
         create_cfg_and_add_tl_program(file_name=file_name, period=period, i=i)
         run_simulation_tl(file_name=file_name, period=period, i=i)
         data = get_data(file_name=file_name, period=period, i=i, opt=Const.Y_OPTION)
         performance = measure_performance(data)
 
-        if buffer is not None and buffer['performance'] < performance:
+        if buffer is not None and buffer['performance'] <= performance:
             delete_files(file_name=file_name, period=period, i=i)
+            continue
 
         elif buffer is None or buffer['performance'] > performance:
             if buffer is not None:
                 delete_files(file_name=file_name, period=period, i=buffer['i'])
             buffer = {
-                'cycle_time': possibilities[i][cycle_time_index],
-                'green_time': possibilities[i][green_time_index],
-                'red_time': possibilities[i][red_time_index],
+                'cycle_time': possibilities[i]['cycle_time'],
+                'green_time': possibilities[i]['green_time'],
+                'red_time': possibilities[i]['red_time'],
                 'performance': performance,
                 'i': i}
 
@@ -306,3 +321,4 @@ def plot_two_graphs(input_file_path_1: str, input_file_path_2: str, output_file:
 
     # Close file and free from memory
     matplotlib.pyplot.close()
+

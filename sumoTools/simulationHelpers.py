@@ -157,6 +157,7 @@ def generate_random_route_files(file_name: str, period: float):
     """
     # Set working directory
     set_working_directory()
+    create_default_dirs(file_name=file_name)
 
     # Set up the possible attributes
     max_distance = 'max-distance'

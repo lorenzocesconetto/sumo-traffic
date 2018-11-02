@@ -1,14 +1,13 @@
 TODO's:
-- Run sumo without printing warnings and steps
-- Check minimum and maximum recommended times for each phase and cycle
-    - Write Brute Force section in the TCC document
-    - Adulto: 1,3 m/s
-    - Crianca e idoso: 1,1 m/s
-    - Tempo de reacao: 2 s
+- Write a script that gives the car volume in each lane / edge.
+    - Compare the traditional theory to the computational method.
+- Run sumo without printing warnings and steps.
+- Check minimum and maximum recommended times for each phase and cycle.
+    - Write Brute Force section in the TCC document.
+    - Adulto: 1,3 m/s.
+    - Crianca e idoso: 1,1 m/s.
+    - Tempo de reacao: 2 s.
     - Fonte: http://www.dtt.ufpr.br/eng_trafego_optativa/arquivos/PEDESTRES.pdf
-    - Default lane width: 3,2 m
-- Run Brute Force in the cross topology
-- Implement a comparative plot for 2 output files based on the same route.
-    - Add a legend to the graph
-- Update previous library with: extensions constants, os.remove, sumo run (no printing)
+    - Default lane width: 3,2 m.
+- Update previous library with: extensions constants, os.remove, sumo run (no printing).
 
