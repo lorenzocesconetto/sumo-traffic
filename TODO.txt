@@ -1,13 +1,10 @@
 TODO's:
+
 - Write a script that gives the car volume in each lane / edge.
     - Compare the traditional theory to the computational method.
-- Run sumo without printing warnings and steps.
-- Check minimum and maximum recommended times for each phase and cycle.
-    - Write Brute Force section in the TCC document.
-    - Adulto: 1,3 m/s.
-    - Crianca e idoso: 1,1 m/s.
-    - Tempo de reacao: 2 s.
-    - Fonte: http://www.dtt.ufpr.br/eng_trafego_optativa/arquivos/PEDESTRES.pdf
-    - Default lane width: 3,2 m.
-- Update previous library with: extensions constants, os.remove, sumo run (no printing).
 
+- Write the smart traffic light.
+
+- Write the Genetic algorithm script.
+    - TODO: Input one (or more) individual as initial population
+    - TODO: Run for the networks and write to the document

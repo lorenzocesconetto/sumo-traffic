@@ -3,7 +3,8 @@ import os
 import subprocess
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plot
-import sumoTools.simulationConstants as Const
+import sumoTools.Constants as Const
+
 
 ####################
 # Helpers
@@ -83,7 +84,7 @@ def create_and_set_cfg_file(file_name: str, period: float):
         print('XML not found: ' + os.getcwd() + '/' + Const.BASE_CFG)
 
     # Make sure network file exists
-    network = file_name + '.net.xml'
+    network = file_name + Const.NET_FILE_EXTENSION
     if not os.path.isfile(file_name + '/' + network):
         print('Network not found: ' + network)
         sys.exit(1)
@@ -91,7 +92,7 @@ def create_and_set_cfg_file(file_name: str, period: float):
     for i in range(Const.NUMBER_OF_SIMULATIONS):
         # Make sure all route files exists
         route_file_name = generate_complete_name_with_index(file_name, period, i)
-        route_file_path = os.path.join(file_name, Const.ROUTE_DIR, route_file_name) + '.rou.xml'
+        route_file_path = os.path.join(file_name, Const.ROUTE_DIR, route_file_name) + Const.ROUTE_FILE_EXTENSION
         if not os.path.isfile(route_file_path):
             print('Route file not found: ' + route_file_path)
             sys.exit(1)
@@ -103,15 +104,15 @@ def create_and_set_cfg_file(file_name: str, period: float):
         base.find('input/net-file').set('value', '../' + network)
 
         # Set route input
-        base.find('input/route-files').set('value', '../' + Const.ROUTE_DIR + '/' + route_file_name + '.rou.xml')
+        base.find('input/route-files').set('value', '../' + Const.ROUTE_DIR + '/' + route_file_name + Const.ROUTE_FILE_EXTENSION)
 
         # Set output file to hold results
         output = base.find('output')
         # OUTPUT_TYPE could be 'summary-output' , 'tripinfo-output'
-        ET.SubElement(output, Const.OUTPUT, {'value': '../' + Const.OUT_DIR + '/' + route_file_name + '.out.xml'})
+        ET.SubElement(output, Const.OUTPUT, {'value': '../' + Const.OUT_DIR + '/' + route_file_name + Const.OUT_FILE_EXTENSION})
 
         # Save configuration xml to file
-        base.write(file_name + '/' + Const.CFG_DIR + '/' + route_file_name + '.sumo.cfg')
+        base.write(file_name + '/' + Const.CFG_DIR + '/' + route_file_name + Const.CFG_FILE_EXTENSION)
 
 
 def check_simulation_environment(file_name: str, period: float):
@@ -127,8 +128,8 @@ def check_simulation_environment(file_name: str, period: float):
         sys.exit(1)
 
     # Check if the .net.xml file exists
-    if not os.path.isfile(file_name + '/' + file_name + '.net.xml'):
-        print("Couldn't find network file: " + '/'.join([file_name, file_name]) + '.net.xml')
+    if not os.path.isfile(file_name + '/' + file_name + Const.NET_FILE_EXTENSION):
+        print("Couldn't find network file: " + '/'.join([file_name, file_name]) + Const.NET_FILE_EXTENSION)
         sys.exit(1)
 
     # Check if NUMBER is valid
@@ -172,7 +173,7 @@ def generate_random_route_files(file_name: str, period: float):
     command = []
     command.append(Const.RANDOM_TRIPS_SCRIPT_PATH)
     command.append('-n')
-    command.append(file_name + '/' + file_name + '.net.xml')
+    command.append(file_name + '/' + file_name + Const.NET_FILE_EXTENSION)
 
     # Add the attributes passed to the ROUTE_GENERATION_OPTIONS dictionary
     add_attribute(command, max_distance)
@@ -190,7 +191,7 @@ def generate_random_route_files(file_name: str, period: float):
         # Append path for route file
         complete_name = generate_complete_name_with_index(file_name, period, i)
         complete_name_with_path = '/'.join([file_name, Const.ROUTE_DIR, complete_name])
-        command.append(complete_name_with_path + '.rou.xml')
+        command.append(complete_name_with_path + Const.ROUTE_FILE_EXTENSION)
 
         # Create route file
         subprocess.run(command)
@@ -210,7 +211,9 @@ def run_simulations(file_name: str, period: float):
     """
     for i in range(Const.NUMBER_OF_SIMULATIONS):
         complete_name = generate_complete_name_with_index(file_name, period, i)
-        subprocess.run(['sumo', '-c', '/'.join([file_name, Const.CFG_DIR, complete_name + '.sumo.cfg'])])
+        subprocess.run(['sumo', '--no-warnings', '-c',
+                        os.path.join(file_name, Const.CFG_DIR, complete_name + Const.CFG_FILE_EXTENSION)
+                        ])
 
 
 def get_single_data_from_output(file_name: str, period: float, opt: str,
@@ -225,7 +228,7 @@ def get_single_data_from_output(file_name: str, period: float, opt: str,
     data = []
 
     # Make sure file exists
-    name = file_name + '/' + Const.OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, file_number) + '.out.xml'
+    name = file_name + '/' + Const.OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, file_number) + Const.OUT_FILE_EXTENSION
     if not os.path.isfile(name):
         print('File not found: ' + name)
         sys.exit(1)
@@ -259,7 +262,7 @@ def get_data_from_all_simulations_output(file_name: str, opt: str, period: float
     # Iterate through each simulation output file
     for i in range(Const.NUMBER_OF_SIMULATIONS):
         tmp = []
-        name = file_name + '/' + Const.OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, i) + '.out.xml'
+        name = file_name + '/' + Const.OUT_DIR + '/' + generate_complete_name_with_index(file_name, period, i) + Const.OUT_FILE_EXTENSION
 
         # Skip file not found
         if not os.path.isfile(name):
@@ -420,7 +423,7 @@ def plot_data(x_axis_data: list, y_axis_data: list, x_label_option: str, y_label
                         'size': 16}
 
     # Title text
-    plot.title(file_name + ' ' + '(period=' + str(float(period)) + ')', fontdict=title_font_style)
+    plot.title(file_name.replace('_test', '') + ' ' + '(period=' + str(float(period)) + ')', fontdict=title_font_style)
 
     # Label format
     label_font_style = {'family': 'sans-serif',
