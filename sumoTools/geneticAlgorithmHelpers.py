@@ -17,8 +17,6 @@ import copy
 ####################
 # Low level Helpers
 ####################
-
-
 def check_timing_constraints():
     if gaConst.STOP_CRITERIA_ITERATIONS > gaConst.MAXIMUM_ITERATIONS:
         print('Number of max iterations should be equal to or larger than number of iterations for stopping criteria')
@@ -588,10 +586,13 @@ def main(file_name: str, period: float):
         population = filter_chromosomes_to_keep(population)
 
         # Cross over (reproduce) the remaining individuals (the strong ones)
-        population = population + cross_over(population)
+        children = cross_over(population)
 
-        # Small change of each individual having some genes mutated
-        mutate_chromosomes(population)
+        # Small change of each new individual have some genes mutated
+        mutate_chromosomes(children)
+
+        population = population + children
+
 
     i = 0
     while os.path.isfile(os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + '-' + str(period) + '-' + str(i) + '.txt'))\

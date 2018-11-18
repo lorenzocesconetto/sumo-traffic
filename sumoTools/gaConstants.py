@@ -2,14 +2,14 @@
 # Genetic Algorithm Constants
 ####################
 
-MAXIMUM_ITERATIONS = 40
-POPULATION_SIZE = 24
+MAXIMUM_ITERATIONS = 50
+POPULATION_SIZE = 80
 
 STOP_CRITERIA_ENHANCEMENT = 0.05
-STOP_CRITERIA_ITERATIONS = 12
+STOP_CRITERIA_ITERATIONS = 15
 
 # Probability to apply a genetic mutation
-MUTATION_PROBABILITY = 0.01
+MUTATION_PROBABILITY = 0.005
 
 # Number of individuals to keep from previous generation (ALWAYS ODD)
 keep_helper = int(0.5 * POPULATION_SIZE)
@@ -31,8 +31,8 @@ NUMBER_OF_PHASES = NUMBER_OF_YELLOW_PHASES + NUMBER_OF_RED_GREEN_PHASES
 MIN_PHASE_DURATION = 8  # in seconds
 MAX_PHASE_DURATION = 70  # in seconds
 
-MAX_CYCLE = 140  # in seconds
-MIN_CYCLE = 40  # in seconds
+MAX_CYCLE = 100  # in seconds
+MIN_CYCLE = 45  # in seconds
 
 PERFORMANCE_PENALTY = 999999
 

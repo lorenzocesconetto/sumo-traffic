@@ -11,6 +11,8 @@ class TrafficLight:
         self.offset = 0
         self.cycle_time = 0
 
+    number_of_bits = 7
+
     def __str__(self) -> str:
         return self.id + ': cycle_time=' + str(self.cycle_time) + ' offset=' + str(self.offset) + ' ' + \
                str(self.state_and_duration)
@@ -40,13 +42,18 @@ class TrafficLight:
                 self.state_and_duration[key] = random.randint(gaConst.MIN_PHASE_DURATION, gaConst.MAX_PHASE_DURATION)
 
         self.set_cycle_time_from_int()
-
         self.offset = random.randint(0, self.cycle_time - 1)
 
     def convert_from_int_to_binary(self):
+        if self.offset > int('1' * self.number_of_bits, 2):
+            self.offset = int('1' * self.number_of_bits, 2)
         self.offset = '{0:07b}'.format(self.offset)
 
         for key, value in self.state_and_duration.items():
+            if 'y' in key:
+                continue
+            if value > int('1' * self.number_of_bits, 2):
+                value = int('1' * self.number_of_bits, 2)
             self.state_and_duration[key] = '{0:07b}'.format(value)
 
     def convert_from_binary_to_int(self):
@@ -55,6 +62,8 @@ class TrafficLight:
             self.offset = 1
 
         for key, value in self.state_and_duration.items():
+            if 'y' in key:
+                continue
             self.state_and_duration[key] = int(value, 2)
             if self.state_and_duration[key] <= 0:
                 self.state_and_duration[key] = 1
@@ -71,6 +80,7 @@ class TrafficLight:
             total_time += int(value)
 
         self.cycle_time = total_time
+        self.offset = self.offset % self.cycle_time
 
 
 class TrafficLightsSet:

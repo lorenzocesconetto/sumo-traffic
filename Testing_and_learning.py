@@ -40,5 +40,17 @@ def test2():
         print(a + ' : ' + str(b))
 
 
+def test3():
+    tl_1 = TrafficLight()
+    tl_1.id = 'tl_1'
+    tl_1.state_and_duration = {'Gr': 41, 'yr': 4, 'rG': 41, 'ry': 4}
+    tl_1.offset = 150
+
+    tl_1.convert_from_int_to_binary()
+    tl_1.convert_from_binary_to_int()
+
+    print(tl_1)
+
+
 if __name__ == '__main__':
-    test1()
+    test3()
