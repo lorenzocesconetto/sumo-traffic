@@ -5,5 +5,7 @@ TODO's:
 
 - Write the smart traffic light.
 
+- Schedule a meeting with Ricardo Gudwin
+
 - Write the Genetic algorithm script.
-    - TODO: Input one (or more) individual as initial population
+    - Input one (or more) individual as initial population

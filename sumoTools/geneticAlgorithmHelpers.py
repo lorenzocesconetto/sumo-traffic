@@ -485,6 +485,8 @@ def cross_over(population: List[TrafficLightsSet]):
             for (phase_1_key_state, phase_1_value_duration), (phase_2_key_state, phase_2_value_duration) in \
                     zip(tl_1.state_and_duration.items(), tl_2.state_and_duration.items()):
 
+                if 'y' in phase_1_key_state:
+                    continue
                 tl_1.state_and_duration[phase_1_key_state], tl_2.state_and_duration[phase_2_key_state] = \
                     switch_genetic_material(phase_1_value_duration, phase_2_value_duration)
 
@@ -593,7 +595,6 @@ def main(file_name: str, period: float):
 
         population = population + children
 
-
     i = 0
     while os.path.isfile(os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + '-' + str(period) + '-' + str(i) + '.txt'))\
             or os.path.isfile(os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + '-' + str(period) + '-' + str(i) + '.png')):
@@ -614,7 +615,6 @@ def main(file_name: str, period: float):
 
 
 if __name__ == '__main__':
-    for i in range(3):
-        main(file_name='principal_test', period=1.0)
+    main(file_name='principal_test', period=1.75)
 
 
