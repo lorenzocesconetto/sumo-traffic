@@ -1,26 +1,26 @@
 <additional>
-    <tlLogic id="gneJ2" type="static" programID="my_program" offset="48">
-        <phase duration="55" state="Gr"/>
+    <tlLogic id="gneJ2" type="static" programID="my_program" offset="123">
+        <phase duration="10" state="Gr"/>
         <phase duration="4" state="yr"/>
-        <phase duration="27" state="rG"/>
+        <phase duration="55" state="rG"/>
         <phase duration="4" state="ry"/>
     </tlLogic>
-    <tlLogic id="gneJ3" type="static" programID="my_program" offset="47">
-        <phase duration="58" state="Gr"/>
+    <tlLogic id="gneJ3" type="static" programID="my_program" offset="106">
+        <phase duration="21" state="Gr"/>
         <phase duration="4" state="yr"/>
-        <phase duration="30" state="rG"/>
+        <phase duration="59" state="rG"/>
         <phase duration="4" state="ry"/>
     </tlLogic>
-    <tlLogic id="gneJ4" type="static" programID="my_program" offset="72">
-        <phase duration="26" state="Gr"/>
+    <tlLogic id="gneJ4" type="static" programID="my_program" offset="48">
+        <phase duration="16" state="Gr"/>
         <phase duration="4" state="yr"/>
-        <phase duration="49" state="rG"/>
+        <phase duration="56" state="rG"/>
         <phase duration="4" state="ry"/>
     </tlLogic>
-    <tlLogic id="gneJ5" type="static" programID="my_program" offset="58">
-        <phase duration="56" state="Gr"/>
+    <tlLogic id="gneJ5" type="static" programID="my_program" offset="70">
+        <phase duration="16" state="Gr"/>
         <phase duration="4" state="yr"/>
-        <phase duration="58" state="rG"/>
+        <phase duration="47" state="rG"/>
         <phase duration="4" state="ry"/>
     </tlLogic>
 </additional>

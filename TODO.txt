@@ -7,4 +7,3 @@ TODO's:
 
 - Write the Genetic algorithm script.
     - TODO: Input one (or more) individual as initial population
-    - TODO: Run for the networks and write to the document

@@ -1,0 +1,123 @@
+Best performance for each generation: [4587.900000000001, 4257.09, 4257.09, 4257.09, 4018.226666666667, 4018.226666666667, 4018.226666666667, 4018.226666666667, 3853.34, 3523.4366666666665, 2834.763333333334, 2834.763333333334, 2598.713333333333, 2598.713333333333, 2578.8633333333332, 2542.49, 2525.4933333333333, 2525.4933333333333, 2508.74, 2495.7766666666666, 2474.3033333333333, 2474.3033333333333, 2474.3033333333333, 2474.3033333333333]
+Average performance for each generation: [10308.89888888889, 6478.204385964911, 5531.2969696969685, 4755.666086956521, 4678.487936507936, 4532.144347826086, 4475.553499999999, 4408.106999999999, 4359.62, 4187.862424242425, 3960.176666666666, 3616.908695652174, 3317.5584848484855, 2950.223650793651, 2834.2053623188403, 2688.463055555555, 2595.2052777777776, 2570.197101449275, 2563.362463768116, 2538.0920833333334, 2514.344637681159, 2490.13125, 2487.7352173913046, 2478.4408333333336]
+Best chromosome for each generation: [Performance=4587.900000000001
+tl=gneJ2: cycle_time=125 offset=10 {'Gr': 52, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=94 offset=3 {'Gr': 22, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=96 offset=91 {'Gr': 48, 'yr': 4, 'rG': 40, 'ry': 4}
+tl=gneJ5: cycle_time=73 offset=60 {'Gr': 13, 'yr': 4, 'rG': 52, 'ry': 4}
+, Performance=4257.09
+tl=gneJ2: cycle_time=97 offset=45 {'Gr': 26, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ3: cycle_time=54 offset=40 {'Gr': 21, 'yr': 4, 'rG': 25, 'ry': 4}
+tl=gneJ4: cycle_time=92 offset=69 {'Gr': 21, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=44 offset=26 {'Gr': 8, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=4257.09
+tl=gneJ2: cycle_time=97 offset=45 {'Gr': 26, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ3: cycle_time=54 offset=40 {'Gr': 21, 'yr': 4, 'rG': 25, 'ry': 4}
+tl=gneJ4: cycle_time=92 offset=69 {'Gr': 21, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=44 offset=26 {'Gr': 8, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=4257.09
+tl=gneJ2: cycle_time=97 offset=45 {'Gr': 26, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ3: cycle_time=54 offset=40 {'Gr': 21, 'yr': 4, 'rG': 25, 'ry': 4}
+tl=gneJ4: cycle_time=92 offset=69 {'Gr': 21, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=44 offset=26 {'Gr': 8, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=4018.226666666667
+tl=gneJ2: cycle_time=65 offset=10 {'Gr': 24, 'yr': 4, 'rG': 33, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=49 offset=60 {'Gr': 13, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=4018.226666666667
+tl=gneJ2: cycle_time=65 offset=10 {'Gr': 24, 'yr': 4, 'rG': 33, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=49 offset=60 {'Gr': 13, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=4018.226666666667
+tl=gneJ2: cycle_time=65 offset=10 {'Gr': 24, 'yr': 4, 'rG': 33, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=49 offset=60 {'Gr': 13, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=4018.226666666667
+tl=gneJ2: cycle_time=65 offset=10 {'Gr': 24, 'yr': 4, 'rG': 33, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=49 offset=60 {'Gr': 13, 'yr': 4, 'rG': 28, 'ry': 4}
+, Performance=3853.34
+tl=gneJ2: cycle_time=124 offset=73 {'Gr': 51, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=94 offset=1 {'Gr': 21, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ4: cycle_time=124 offset=69 {'Gr': 53, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=68 offset=62 {'Gr': 8, 'yr': 4, 'rG': 52, 'ry': 4}
+, Performance=3523.4366666666665
+tl=gneJ2: cycle_time=97 offset=74 {'Gr': 24, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=118 offset=67 {'Gr': 48, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=73 offset=60 {'Gr': 13, 'yr': 4, 'rG': 52, 'ry': 4}
+, Performance=2834.763333333334
+tl=gneJ2: cycle_time=65 offset=10 {'Gr': 24, 'yr': 4, 'rG': 33, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=70 offset=91 {'Gr': 16, 'yr': 4, 'rG': 46, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2834.763333333334
+tl=gneJ2: cycle_time=65 offset=10 {'Gr': 24, 'yr': 4, 'rG': 33, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=70 offset=91 {'Gr': 16, 'yr': 4, 'rG': 46, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2598.713333333333
+tl=gneJ2: cycle_time=89 offset=74 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=87 offset=91 {'Gr': 16, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=73 offset=124 {'Gr': 13, 'yr': 4, 'rG': 52, 'ry': 4}
+, Performance=2598.713333333333
+tl=gneJ2: cycle_time=89 offset=74 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=87 offset=91 {'Gr': 16, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=73 offset=124 {'Gr': 13, 'yr': 4, 'rG': 52, 'ry': 4}
+, Performance=2578.8633333333332
+tl=gneJ2: cycle_time=89 offset=74 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=87 offset=91 {'Gr': 16, 'yr': 4, 'rG': 63, 'ry': 4}
+tl=gneJ5: cycle_time=73 offset=62 {'Gr': 13, 'yr': 4, 'rG': 52, 'ry': 4}
+, Performance=2542.49
+tl=gneJ2: cycle_time=97 offset=10 {'Gr': 24, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=35 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2525.4933333333333
+tl=gneJ2: cycle_time=97 offset=10 {'Gr': 24, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2525.4933333333333
+tl=gneJ2: cycle_time=97 offset=10 {'Gr': 24, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2508.74
+tl=gneJ2: cycle_time=89 offset=74 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=92 offset=3 {'Gr': 20, 'yr': 4, 'rG': 64, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2495.7766666666666
+tl=gneJ2: cycle_time=89 offset=10 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=96 offset=35 {'Gr': 20, 'yr': 4, 'rG': 68, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=126 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2474.3033333333333
+tl=gneJ2: cycle_time=89 offset=10 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=96 offset=3 {'Gr': 20, 'yr': 4, 'rG': 68, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2474.3033333333333
+tl=gneJ2: cycle_time=89 offset=10 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=96 offset=3 {'Gr': 20, 'yr': 4, 'rG': 68, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2474.3033333333333
+tl=gneJ2: cycle_time=89 offset=10 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=96 offset=3 {'Gr': 20, 'yr': 4, 'rG': 68, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+, Performance=2474.3033333333333
+tl=gneJ2: cycle_time=89 offset=10 {'Gr': 16, 'yr': 4, 'rG': 65, 'ry': 4}
+tl=gneJ3: cycle_time=96 offset=3 {'Gr': 20, 'yr': 4, 'rG': 68, 'ry': 4}
+tl=gneJ4: cycle_time=86 offset=91 {'Gr': 16, 'yr': 4, 'rG': 62, 'ry': 4}
+tl=gneJ5: cycle_time=81 offset=62 {'Gr': 13, 'yr': 4, 'rG': 60, 'ry': 4}
+]

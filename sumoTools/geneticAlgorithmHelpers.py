@@ -303,7 +303,7 @@ def plot_evolution_graph(best_performances: List[float], average_performances: L
                         'size': 12}
 
     # Label text
-    matplotlib.pyplot.xlabel(Const.PLOT_AXIS_LABEL_OPTIONS[Const.X_OPTION], fontdict=label_font_style)
+    matplotlib.pyplot.xlabel('Geração', fontdict=label_font_style)
     matplotlib.pyplot.ylabel(Const.PLOT_AXIS_LABEL_OPTIONS[Const.Y_OPTION], fontdict=label_font_style)
 
     # Add grid lines
@@ -592,19 +592,28 @@ def main(file_name: str, period: float):
 
         # Small change of each individual having some genes mutated
         mutate_chromosomes(population)
-    print('Best performance for each generation: ' + str(best_performance_each_generation) + '\n')
-    print('Average performance for each generation: ' + str(average_performance_each_generation) + '\n')
-    print('Best chromosome for each generation: ' + str(best_chromosome_each_generation) + '\n')
+
+    i = 0
+    while os.path.isfile(os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + '-' + str(period) + '-' + str(i) + '.txt'))\
+            or os.path.isfile(os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + '-' + str(period) + '-' + str(i) + '.png')):
+        i += 1
+
+    name = os.path.join(Const.WORKING_DIRECTORY, file_name, file_name + '-' + str(period) + '-' + str(i))
+    log = open(name + '.txt', 'w')
+    log.write('Best performance for each generation: ' + str(best_performance_each_generation) + '\n')
+    log.write('Average performance for each generation: ' + str(average_performance_each_generation) + '\n')
+    log.write('Best chromosome for each generation: ' + str(best_chromosome_each_generation) + '\n')
 
     plot_evolution_graph(best_performances=best_performance_each_generation,
-                         average_performances=average_performance_each_generation, output_path='',
-                         title='Evolução da performance ao longo das gerações',
+                         average_performances=average_performance_each_generation,
+                         output_path=name + '.png',
+                         title='Evolução da performance (p=' + str(period) + ')',
                          best_legend='Melhor performance por geração',
                          average_legend='Média da performance por geração')
 
 
 if __name__ == '__main__':
-    main(file_name='principal_test', period=2.0)
-
+    for i in range(3):
+        main(file_name='principal_test', period=1.0)
 
 

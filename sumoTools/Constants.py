@@ -3,7 +3,7 @@
 ####################
 
 # Number of simulations
-NUMBER_OF_SIMULATIONS = 1
+NUMBER_OF_SIMULATIONS = 3
 
 # Directories
 OUT_DIR = 'out'
