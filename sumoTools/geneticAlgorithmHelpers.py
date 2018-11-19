@@ -44,7 +44,7 @@ def create_ga_dir(file_name: str):
     """
     SH.set_working_directory()
 
-    for directory in [Const.TL_DIR, gaConst.OUT_DIR_GA, gaConst.CFG_DIR_GA, Const.PLOT_DIR]:
+    for directory in [Const.TL_DIR, gaConst.OUT_DIR_GA, gaConst.CFG_DIR_GA, Const.PLOT_DIR, Const.ROUTE_DIR]:
         if not os.path.isdir(os.path.join(file_name, directory)):
             subprocess.run(['mkdir', os.path.join(file_name, directory)])
 
@@ -316,6 +316,51 @@ def plot_evolution_graph(best_performances: List[float], average_performances: L
     matplotlib.pyplot.close()
 
 
+def plot_best_perf_graph(best_performances: List[float], output_path: str = '',
+                         title: str = '', best_legend: str = ''):
+    # x axis data
+    x_axis_data = [x + 1 for x in range(len(best_performances))]
+
+    # Plot both graphs into the same plane
+    matplotlib.pyplot.plot(x_axis_data, best_performances, label=best_legend)
+
+    # Add legend
+    if best_legend:
+        matplotlib.pyplot.legend()
+
+    # Title format
+    title_font_style = {'family': 'sans-serif',
+                        'fontname': 'Verdana',
+                        'color': 'darkred',
+                        'weight': 'bold',
+                        'size': 16}
+
+    # Title text
+    matplotlib.pyplot.title(title, fontdict=title_font_style)
+
+    # Label format
+    label_font_style = {'family': 'sans-serif',
+                        'fontname': 'Arial',
+                        'color': 'black',
+                        'weight': 'normal',
+                        'size': 12}
+
+    # Label text
+    matplotlib.pyplot.xlabel('Geração', fontdict=label_font_style)
+    matplotlib.pyplot.ylabel(Const.PLOT_AXIS_LABEL_OPTIONS[Const.Y_OPTION], fontdict=label_font_style)
+
+    # Add grid lines
+    matplotlib.pyplot.grid()
+
+    if output_path:
+        matplotlib.pyplot.savefig(output_path)
+    else:
+        matplotlib.pyplot.show()
+
+    # Close file and free from memory
+    matplotlib.pyplot.close()
+
+
 ####################
 # Mid level Helpers
 ####################
@@ -549,6 +594,7 @@ def get_best_chromosome(population: List[TrafficLightsSet]):
 
 
 def main(file_name: str, period: float):
+    period = float(period)
     # Creates Genetic Algorithm directories
     create_ga_dir(file_name=file_name)
 
@@ -615,6 +661,5 @@ def main(file_name: str, period: float):
 
 
 if __name__ == '__main__':
-    main(file_name='principal_test', period=1.75)
-
-
+    main(file_name='manhattan_test', period=2.0)
+    # plot_best_perf_graph(best_performances=[996.885, 975.73, 793.2, 793.2, 268.95500000000004, 268.95500000000004, 268.95500000000004, 214.235, 201.47, 181.61, 164.61, 154.73000000000002, 154.73000000000002, 154.065, 149.35999999999999, 142.98000000000002, 142.98000000000002, 137.94, 137.94, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 97.41499999999999, 97.41499999999999, 97.41499999999999, 96.005, 96.005, 96.005, 89.08, 89.08, 89.08, 89.08, 89.08, 89.08, 83.63, 83.63, 83.63, 83.63, 83.63, 83.63, 83.63, 81.105, 80.68])

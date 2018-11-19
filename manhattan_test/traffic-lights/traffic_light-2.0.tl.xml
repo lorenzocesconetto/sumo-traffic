@@ -1,0 +1,56 @@
+<additional>
+    <tlLogic id="0/0" type="static" programID="my_program" offset="75">
+        <phase duration="22" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="63" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="0/1" type="static" programID="my_program" offset="80">
+        <phase duration="34" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="49" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="0/2" type="static" programID="my_program" offset="27">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="33" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="1/0" type="static" programID="my_program" offset="93">
+        <phase duration="36" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="70" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="1/1" type="static" programID="my_program" offset="94">
+        <phase duration="61" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="60" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="1/2" type="static" programID="my_program" offset="6">
+        <phase duration="27" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="31" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="2/0" type="static" programID="my_program" offset="79">
+        <phase duration="57" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="41" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="2/1" type="static" programID="my_program" offset="26">
+        <phase duration="33" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="62" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="2/2" type="static" programID="my_program" offset="21">
+        <phase duration="62" state="GGrrGGrr"/>
+        <phase duration="4" state="yyrryyrr"/>
+        <phase duration="36" state="rrGGrrGG"/>
+        <phase duration="4" state="rryyrryy"/>
+    </tlLogic>
+</additional>
