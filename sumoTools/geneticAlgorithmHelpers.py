@@ -613,6 +613,7 @@ def main(file_name: str, period: float):
     population = initial_population(file_name=file_name)
 
     for i in range(gaConst.MAXIMUM_ITERATIONS):
+        print('Iteration number: ' + str(i + 1))
         for tl_set in population:
             if tl_set.performance is None:
                 fitness_function(file_name=file_name, period=period, tl_set=tl_set)
@@ -639,6 +640,7 @@ def main(file_name: str, period: float):
         # Small change of each new individual have some genes mutated
         mutate_chromosomes(children)
 
+        # Merge parents and children
         population = population + children
 
     i = 0
