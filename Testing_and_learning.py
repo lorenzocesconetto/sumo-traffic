@@ -52,5 +52,10 @@ def test3():
     print(tl_1)
 
 
+def test4():
+    number_of_bits = 4
+    print(('{0:0' + str(number_of_bits) + 'b}').format(10))
+
+
 if __name__ == '__main__':
-    test3()
+    test4()

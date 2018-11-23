@@ -11,7 +11,7 @@ class TrafficLight:
         self.offset = 0
         self.cycle_time = 0
 
-    number_of_bits = 7
+    number_of_bits = 8
 
     def __str__(self) -> str:
         return self.id + ': cycle_time=' + str(self.cycle_time) + ' offset=' + str(self.offset) + ' ' + \
@@ -47,26 +47,30 @@ class TrafficLight:
     def convert_from_int_to_binary(self):
         if self.offset > int('1' * self.number_of_bits, 2):
             self.offset = int('1' * self.number_of_bits, 2)
-        self.offset = '{0:07b}'.format(self.offset)
+        self.offset = ('{0:0' + str(self.number_of_bits) + 'b}').format(self.offset)
 
         for key, value in self.state_and_duration.items():
             if 'y' in key:
                 continue
             if value > int('1' * self.number_of_bits, 2):
                 value = int('1' * self.number_of_bits, 2)
-            self.state_and_duration[key] = '{0:07b}'.format(value)
+            self.state_and_duration[key] = ('{0:0' + str(self.number_of_bits) + 'b}').format(value)
 
     def convert_from_binary_to_int(self):
         self.offset = int(self.offset, 2)
-        if self.offset <= 0:
-            self.offset = 1
 
         for key, value in self.state_and_duration.items():
+
             if 'y' in key:
                 continue
+
             self.state_and_duration[key] = int(value, 2)
-            if self.state_and_duration[key] <= 0:
-                self.state_and_duration[key] = 1
+
+            if self.state_and_duration[key] < gaConst.MIN_PHASE_DURATION:
+                self.state_and_duration[key] = gaConst.MIN_PHASE_DURATION
+
+            if self.state_and_duration[key] > gaConst.MAX_PHASE_DURATION:
+                self.state_and_duration[key] = gaConst.MAX_PHASE_DURATION
 
         self.set_cycle_time_from_int()
 
@@ -80,6 +84,8 @@ class TrafficLight:
             total_time += int(value)
 
         self.cycle_time = total_time
+        while self.offset < 0:
+            self.offset += self.cycle_time
         self.offset = self.offset % self.cycle_time
 
 

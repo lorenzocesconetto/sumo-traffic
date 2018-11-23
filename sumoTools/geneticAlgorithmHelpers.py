@@ -427,28 +427,39 @@ def select_chromosomes_to_crossover():
     return chromosomes_to_crossover
 
 
-def switch_genetic_material(gen_1: str, gen_2: str):
-    if len(gen_1) != len(gen_2):
-        print('chromosomes with different length')
+def switch_genetic_material(allele_1: str, allele_2: str):
+    if len(allele_1) != len(allele_2):
+        print('Alleles with different length')
         sys.exit(1)
 
-    switch_point = random.randint(0, len(gen_1) - 1)
+    child_1 = ''
+    child_2 = ''
 
-    gen_1_transfer = gen_1[switch_point:]
-    gen_2_transfer = gen_2[switch_point:]
+    for bit_1, bit_2 in zip(allele_1, allele_2):
+        if random.random() >= 0.5:
+            child_1 += bit_1
+            child_2 += bit_2
+        else:
+            child_1 += bit_2
+            child_2 += bit_1
 
-    gen_1 = gen_1[:switch_point] + gen_2_transfer
-    gen_2 = gen_2[:switch_point] + gen_1_transfer
-
-    return gen_1, gen_2
+    return child_1, child_2
 
 
-def mutation(chromosome: str):
-    mutation_position = random.randint(0, len(chromosome) - 1)
-    new_gen = '1' if chromosome[mutation_position] == '0' else '0'
-    chromosome = chromosome[:mutation_position] + new_gen + chromosome[mutation_position + 1:]
+def mutation(allele: int, mutation_type: str):
+    if mutation_type == 'offset':
+        allele += random.randint(gaConst.MUTATION_OFFSET_LOWER_BOUND, gaConst.MUTATION_OFFSET_UPPER_BOUND)
 
-    return chromosome
+    if mutation_type == 'phase':
+        allele += random.randint(gaConst.MUTATION_PHASE_LOWER_BOUND, gaConst.MUTATION_PHASE_UPPER_BOUND)
+
+        if allele < gaConst.MIN_PHASE_DURATION:
+            allele = gaConst.MIN_PHASE_DURATION
+
+        if allele > gaConst.MAX_PHASE_DURATION:
+            allele = gaConst.MAX_PHASE_DURATION
+
+    return allele
 
 
 ####################
@@ -532,6 +543,7 @@ def cross_over(population: List[TrafficLightsSet]):
 
                 if 'y' in phase_1_key_state:
                     continue
+
                 tl_1.state_and_duration[phase_1_key_state], tl_2.state_and_duration[phase_2_key_state] = \
                     switch_genetic_material(phase_1_value_duration, phase_2_value_duration)
 
@@ -551,19 +563,18 @@ def cross_over(population: List[TrafficLightsSet]):
 def mutate_chromosomes(population: List[TrafficLightsSet]):
     for tl_set in population:
         for tl in tl_set.traffic_light_list:
-            tl.convert_from_int_to_binary()
 
             if random.random() < gaConst.MUTATION_PROBABILITY:
-                tl.offset = mutation(tl.offset)
+                tl.offset = mutation(tl.offset, 'offset')
                 tl_set.performance = None
 
             for phase_state, phase_duration in tl.state_and_duration.items():
                 if 'y' not in phase_state:
                     if random.random() < gaConst.MUTATION_PROBABILITY:
-                        tl.state_and_duration[phase_state] = mutation(phase_duration)
+                        tl.state_and_duration[phase_state] = mutation(phase_duration, 'phase')
                         tl_set.performance = None
 
-            tl.convert_from_binary_to_int()
+            tl.set_cycle_time_from_int()
 
 
 def get_population_avg_and_best(population: List[TrafficLightsSet]):
@@ -614,10 +625,13 @@ def main(file_name: str, period: float):
 
     for i in range(gaConst.MAXIMUM_ITERATIONS):
         print('Iteration number: ' + str(i + 1))
+        count = 0
         for tl_set in population:
             if tl_set.performance is None:
                 fitness_function(file_name=file_name, period=period, tl_set=tl_set)
+                count += 1
 
+        print('Number of tl_set\'s performance measurements: ' + str(count))
         # Store the best and the average performance of population
         avg_n_best = get_population_avg_and_best(population)
         best_performance_each_generation.append(avg_n_best['best'])
@@ -664,4 +678,4 @@ def main(file_name: str, period: float):
 
 if __name__ == '__main__':
     main(file_name='manhattan_test', period=2.0)
-    # plot_best_perf_graph(best_performances=[996.885, 975.73, 793.2, 793.2, 268.95500000000004, 268.95500000000004, 268.95500000000004, 214.235, 201.47, 181.61, 164.61, 154.73000000000002, 154.73000000000002, 154.065, 149.35999999999999, 142.98000000000002, 142.98000000000002, 137.94, 137.94, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 130.415, 97.41499999999999, 97.41499999999999, 97.41499999999999, 96.005, 96.005, 96.005, 89.08, 89.08, 89.08, 89.08, 89.08, 89.08, 83.63, 83.63, 83.63, 83.63, 83.63, 83.63, 83.63, 81.105, 80.68])
+    # plot_best_perf_graph(best_performances=[602.425, 591.175, 591.175, 591.175, 583.595, 548.77, 539.44, 539.44, 531.235, 508.79499999999996, 505.55000000000007, 478.44, 478.195, 457.41999999999996, 450.62, 445.395, 443.815, 438.21000000000004, 430.78999999999996, 430.78999999999996, 430.78999999999996, 430.78999999999996, 430.645, 423.37, 423.13, 417.77, 412.405, 405.73, 405.73, 399.025, 399.025, 397.095, 397.095, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996, 385.28999999999996], title='Principal - Melhor performance (p=1.5)')

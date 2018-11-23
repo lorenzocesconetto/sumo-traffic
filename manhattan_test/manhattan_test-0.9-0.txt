@@ -1,0 +1,203 @@
+Best performance for each generation: [0.43, 0.43, 0.43, 0.43, 0.43, 0.41500000000000004, 0.41500000000000004, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405, 0.405]
+Average performance for each generation: [4460.7660674157305, 1014.2600862068966, 432.27943548387105, 180.88283582089554, 135.96680555555554, 222.34879746835443, 119.31499999999998, 1.0034831460674158, 71.34051136363635, 151.4688202247191, 53.14818181818182, 26.316129032258047, 22.18814606741573, 23.853520408163266, 89.89973684210533, 0.42687500000000006, 0.4183838383838385, 0.4153030303030306, 0.41230000000000044, 12.093999999999994]
+Best chromosome for each generation: [Performance=0.43
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=55 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=14 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=73 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=134 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 63, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.43
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=55 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=14 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=73 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=134 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 63, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.43
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=55 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=14 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=73 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=134 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 63, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.43
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=55 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=14 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=73 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=134 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 63, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.43
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=55 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=14 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=73 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=134 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 63, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.41500000000000004
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=91 offset=62 {'GGrrGGrr': 40, 'yyrryyrr': 4, 'rrGGrrGG': 43, 'rryyrryy': 4}
+tl=0/2: cycle_time=98 offset=67 {'GGrrGGrr': 42, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=130 offset=39 {'GGrrGGrr': 76, 'yyrryyrr': 4, 'rrGGrrGG': 46, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=10 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=88 offset=73 {'GGrrGGrr': 48, 'yyrryyrr': 4, 'rrGGrrGG': 32, 'rryyrryy': 4}
+tl=2/0: cycle_time=104 offset=41 {'GGrrGGrr': 49, 'yyrryyrr': 4, 'rrGGrrGG': 47, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=2 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.41500000000000004
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=91 offset=62 {'GGrrGGrr': 40, 'yyrryyrr': 4, 'rrGGrrGG': 43, 'rryyrryy': 4}
+tl=0/2: cycle_time=98 offset=67 {'GGrrGGrr': 42, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=130 offset=39 {'GGrrGGrr': 76, 'yyrryyrr': 4, 'rrGGrrGG': 46, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=10 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=88 offset=73 {'GGrrGGrr': 48, 'yyrryyrr': 4, 'rrGGrrGG': 32, 'rryyrryy': 4}
+tl=2/0: cycle_time=104 offset=41 {'GGrrGGrr': 49, 'yyrryyrr': 4, 'rrGGrrGG': 47, 'rryyrryy': 4}
+tl=2/1: cycle_time=87 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 36, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=2 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+, Performance=0.405
+tl=0/0: cycle_time=54 offset=25 {'GGrrGGrr': 25, 'yyrryyrr': 4, 'rrGGrrGG': 21, 'rryyrryy': 4}
+tl=0/1: cycle_time=109 offset=54 {'GGrrGGrr': 56, 'yyrryyrr': 4, 'rrGGrrGG': 45, 'rryyrryy': 4}
+tl=0/2: cycle_time=114 offset=69 {'GGrrGGrr': 58, 'yyrryyrr': 4, 'rrGGrrGG': 48, 'rryyrryy': 4}
+tl=1/0: cycle_time=126 offset=35 {'GGrrGGrr': 60, 'yyrryyrr': 4, 'rrGGrrGG': 58, 'rryyrryy': 4}
+tl=1/1: cycle_time=124 offset=54 {'GGrrGGrr': 65, 'yyrryyrr': 4, 'rrGGrrGG': 51, 'rryyrryy': 4}
+tl=1/2: cycle_time=100 offset=69 {'GGrrGGrr': 32, 'yyrryyrr': 4, 'rrGGrrGG': 60, 'rryyrryy': 4}
+tl=2/0: cycle_time=130 offset=53 {'GGrrGGrr': 63, 'yyrryyrr': 4, 'rrGGrrGG': 59, 'rryyrryy': 4}
+tl=2/1: cycle_time=91 offset=57 {'GGrrGGrr': 43, 'yyrryyrr': 4, 'rrGGrrGG': 40, 'rryyrryy': 4}
+tl=2/2: cycle_time=104 offset=98 {'GGrrGGrr': 44, 'yyrryyrr': 4, 'rrGGrrGG': 52, 'rryyrryy': 4}
+]
